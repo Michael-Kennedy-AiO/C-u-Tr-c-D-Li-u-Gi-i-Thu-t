@@ -1,4 +1,4 @@
-package com.tiendd2008110316.tuan4.lab4;
+package com.tiendd2008110316.tuan4.baitapthem;
 
 import java.util.Scanner;
 
