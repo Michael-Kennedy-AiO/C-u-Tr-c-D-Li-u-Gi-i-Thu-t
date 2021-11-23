@@ -144,35 +144,43 @@ public class KhoHang {
 			System.out.print("Hãy nhập Id hàng cần xóa: ");
 			int idCanXoa = scanner.nextInt();
 			
+			if (headDienMay.id == idCanXoa) {
+				headDienMay = headDienMay.next;
+				return;
+			}
+			
+			if (headSanhSu.id == idCanXoa) {
+				headSanhSu = headSanhSu.next;
+				return;
+			}
+			
+			if (headThucPham.id == idCanXoa) {
+				headThucPham = headThucPham.next;
+				return;
+			}
+			
 			DienMay curDM = headDienMay;
 			SanhSu curSS = headSanhSu;
 			ThucPham curTP = headThucPham;
 			
 			while (curDM.next != null) {
 				if (curDM.next.id == idCanXoa) {
-					System.out.println("đã tìm thấy");
 					curDM.next = curDM.next.next;
 					return;
 				}
 				curDM = curDM.next;
 			}
 			
-			System.out.println("Qua SS");
-			
 			while (curSS.next != null) {
 				if (curSS.next.id == idCanXoa) {
-					System.out.println("đã tìm thấy");
 					curSS.next = curSS.next.next;
 					return;
 				}
 				curSS = curSS.next;
 			}
 			
-			System.out.println("Qua TP");
-			
 			while (curTP != null) {
 				if (curTP.next.id == idCanXoa) {
-					System.out.println("đã tìm thấy");
 					curTP.next = curTP.next.next;
 					return;
 				}
@@ -182,7 +190,53 @@ public class KhoHang {
 		}
 		
 		if (cachxoa == 2) {
+			System.out.print("Hãy nhập tên hàng cần xóa: ");
+			scanner.nextLine();
+			String idCanXoa = scanner.nextLine();
 			
+			if (headDienMay.name.equalsIgnoreCase(idCanXoa)) {
+				headDienMay = headDienMay.next;
+				return;
+			}
+			
+			if (headSanhSu.name.equalsIgnoreCase(idCanXoa)) {
+				headSanhSu = headSanhSu.next;
+				return;
+			}
+			
+			if (headThucPham.name.equalsIgnoreCase(idCanXoa)) {
+				headThucPham = headThucPham.next;
+				return;
+			}
+			
+			DienMay curDM = headDienMay;
+			SanhSu curSS = headSanhSu;
+			ThucPham curTP = headThucPham;
+			
+			while (curDM.next != null) {
+				if (curDM.next.name.equalsIgnoreCase(idCanXoa)) {
+					curDM.next = curDM.next.next;
+					return;
+				}
+				curDM = curDM.next;
+			}
+			
+			while (curSS.next != null) {
+				if (curSS.next.name.equalsIgnoreCase(idCanXoa)) {
+					curSS.next = curSS.next.next;
+					return;
+				}
+				curSS = curSS.next;
+			}
+			
+			while (curTP != null) {
+				if (curTP.next.name.equalsIgnoreCase(idCanXoa)) {
+					curTP.next = curTP.next.next;
+					return;
+				}
+				curTP = curTP.next;
+			}
+			System.out.println("Đã xóa");
 		}
 
 		if (cachxoa == 3) {

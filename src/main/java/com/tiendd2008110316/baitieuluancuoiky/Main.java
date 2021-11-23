@@ -49,6 +49,7 @@ public class Main {
             System.out.println("6)  Thoát            		|");
             System.out.println("-------------------------");
             System.out.print("Chọn chức năng: ");
+            System.out.println("dấdasdasdasasđâsdasd");
             int key = bienNhap.nextInt();
             
             switch(key){
