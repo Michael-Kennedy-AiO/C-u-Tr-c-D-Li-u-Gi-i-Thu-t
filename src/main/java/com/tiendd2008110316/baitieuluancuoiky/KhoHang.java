@@ -333,6 +333,7 @@ public class KhoHang {
 				if (curDM.ngayNhapKho.compareTo(startDate) >= 0 && curDM.ngayNhapKho.compareTo(startDate) <= 0) 
 					curDM.inTT();
 				
+				
 				curDM = curDM.next;
 			}
 			System.out.println();
