@@ -38,24 +38,41 @@ public class Main {
 		
 		//DienMay headDienMay = new DienMay(1, "May xay sinh to", 0, 0, ngaynhapkho);
 		
+//		Date b = null;
+//		System.out.println("aaaaa");
+//		String date = bienNhap.nextLine();
+//
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//		try {
+//		    //Parsing the String
+//			b = dateFormat.parse(date);
+//		} catch (ParseException e) {
+//		    // TODO Auto-generated catch block
+//		    e.printStackTrace();
+//		}
+//		System.out.println(b);
 		
 		while (true){
         	System.out.println();
     		System.out.println("------------MENU---------");
             System.out.println("1)  Thêm hàng			|");
-            System.out.println("2)  Xóa hàng		|");
-            System.out.println("3)  Sửa hàng    	|");
+            System.out.println("2)  In danh sách hàng hóa	|");
+            System.out.println("3)  Xóa hàng    		|");
             System.out.println("4)  Thêm táo tại táo bất kỳ    	|");
-            System.out.println("6)  Thoát            		|");
+            System.out.println("5)  Tìm hàng    		|");
+            System.out.println("6)  Thống kê kho hàng    		|");
+            System.out.println("7)  Thoát            		|");
             System.out.println("-------------------------");
             System.out.print("Chọn chức năng: ");
-            System.out.println("dấdasdasdasasđâsdasd");
             int key = bienNhap.nextInt();
             
             switch(key){
         	case 1:	ThemHang(kho);break;
         	case 2:	InTT(kho);break;
         	case 3:	XoaHang(kho);break;
+
+        	case 5:	TimHang(kho);break;
+        	case 6:	ThongKeKho(kho);break;
         	default: break;
         	}
 		}
@@ -73,15 +90,11 @@ public class Main {
 		kho.XoaHang(bienNhap);
 	}
 	
-	public void TimHangTheoID(int id) {
-		
+	public static void TimHang(KhoHang kho) {
+		kho.TimHang(bienNhap);
 	}
 	
-	public void TimHangTheoID(String name) {
-		
-	}
-
-	public void TimHangTheoID(float gia) {
-	
+	public static void ThongKeKho(KhoHang kho) {
+		kho.ThongKe(bienNhap);
 	}
 }

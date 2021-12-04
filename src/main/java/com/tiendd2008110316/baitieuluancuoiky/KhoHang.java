@@ -1,11 +1,15 @@
 package com.tiendd2008110316.baitieuluancuoiky;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class KhoHang {
 	DienMay headDienMay;
 	SanhSu headSanhSu;
 	ThucPham headThucPham;
+	SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
 	
 	KhoHang(){
 		
@@ -35,9 +39,7 @@ public class KhoHang {
 				}
 				cur = cur.next;
 			}
-		}
-		
-		if (loaiHang == 2) {
+		}else if (loaiHang == 2) {
 			SanhSu cur = headSanhSu;
 			while (cur != null) {
 				if (cur.next == null) {
@@ -47,11 +49,9 @@ public class KhoHang {
 					cur.next = itemMoi;
 					break;
 				}
+				cur = cur.next;
 			}
-			cur = cur.next;
-		}
-
-		if (loaiHang == 3) {
+		}else if (loaiHang == 3) {
 			ThucPham cur = headThucPham;
 			while (cur != null) {
 				if (cur.next == null) {
@@ -61,8 +61,8 @@ public class KhoHang {
 					cur.next = itemMoi;
 					break;
 				}
+				cur = cur.next;
 			}
-			cur = cur.next;
 		}
 	}
 	
@@ -243,13 +243,161 @@ public class KhoHang {
 			
 		}
 		
-		
-		
-		
-		
 	}
 	
+	public void TimHang(Scanner scanner) {
+		System.out.println("Muốn tìm hàng theo cách nào");
+		System.out.print("1) Theo loại	2) Theo giá	3) Theo ngày nhập ----> Lựa chọn: ");
+		
+		int cachtim = scanner.nextInt();
+		
+		
+		if (cachtim == 1) {
+			System.out.println("\nHãy nhập Loại hàng bạn muốn tìm");
+			System.out.print("1) Điện máy	2) Sành sứ	3) Thực phẩm ----> Lựa chọn: ");
+			int loai = scanner.nextInt();
+			
+			if (loai == 1) {
+				DienMay cur = headDienMay;
+				while (cur != null) {
+					cur.inTT();
+					cur = cur.next;
+				}
+			}else if (loai == 2) {
+				SanhSu cur = headSanhSu;
+				while (cur != null) {
+					cur.inTT();
+					cur = cur.next;
+				}
+			}else if (loai == 3) {
+				ThucPham cur = headThucPham;
+				while (cur != null) {
+					cur.inTT();
+					cur = cur.next;
+				}
+			}
+			
+			
+		}else if (cachtim == 2) {
+			System.out.print("Hãy nhập khoảng giá của hàng bạn muốn tìm\nTừ: ");
+			float start = scanner.nextFloat();
+			System.out.print("Đến: ");
+			float end = scanner.nextFloat();
+			
+			DienMay curDM = headDienMay;
+			SanhSu curSS = headSanhSu;
+			ThucPham curTP = headThucPham;
+			
+			while (curDM != null) {
+				if (curDM.gia >= start && curDM.gia <= end)
+					curDM.inTT();
+				curDM = curDM.next;
+			}
+			System.out.println();
+			
+			while (curSS != null) {
+				if (curSS.gia >= start && curSS.gia <= end)
+					curSS.inTT();
+				curSS = curSS.next;
+			}
+			System.out.println();
+			
+			while (curTP != null) {
+				if (curTP.gia >= start && curTP.gia <= end)
+					curTP.inTT();
+				curTP = curTP.next;
+			}
+			
+		}else if (cachtim == 3) {
+			System.out.println("Hãy nhập khoảng ngày nhập kho sản phẩm bạn muốn tìm (dd-mm-yyyy)\nTừ ngày: ");
+			String date = scanner.nextLine();
+			Date startDate;
+			try {
+				startDate = dateFormat.parse(date);
+			} catch (ParseException e) {
+				System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+				return;
+			}
+			
+			System.out.println("Đến ngày: ");
+			Date endDate;
+			try {
+				endDate = dateFormat.parse(date);
+			} catch (ParseException e) {
+				System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+				return;
+			}
+			
+			DienMay curDM = headDienMay;
+			while (curDM != null) {
+				if (curDM.ngayNhapKho.compareTo(startDate) >= 0 && curDM.ngayNhapKho.compareTo(startDate) <= 0) 
+					curDM.inTT();
+				
+				curDM = curDM.next;
+			}
+			System.out.println();
+			SanhSu curSS = headSanhSu;
+			while (curSS != null) {
+				if (curSS.ngayNhapKho.compareTo(startDate) >= 0 && curSS.ngayNhapKho.compareTo(startDate) <= 0) 
+					curSS.inTT();
+				
+				curSS = curSS.next;
+			}
+			System.out.println();
+			ThucPham curTP = headThucPham;
+			while (curTP != null) {
+				if (curTP.ngayNhapKho.compareTo(startDate) >= 0 && curTP.ngayNhapKho.compareTo(startDate) <= 0) 
+					curTP.inTT();
+				
+				curTP = curTP.next;
+			}
+		}
+	}
 	
+	public void ThongKe(Scanner scanner) {
+		int tongSLHang;
+		int tongSLDienMay = 0;
+		int tongSLSanhSu = 0;
+		int tongSLThucPham = 0;
+		
+		float tongGiaTri = 0;
+		float tongGiaTriDienMay = 0;
+		float tongGiaTriSanhSu = 0;
+		float tongGiaTriThucPham = 0;
+		
+		DienMay curDM = headDienMay;
+		SanhSu curSS = headSanhSu;
+		ThucPham curTP = headThucPham;
+		
+		while (curDM != null) {
+			tongSLDienMay++;
+			tongGiaTriDienMay += curDM.gia;
+			curDM = curDM.next;
+		}
+		
+		while (curSS != null) {
+			tongSLSanhSu++;
+			tongGiaTriSanhSu += curSS.gia;
+			curSS = curSS.next;
+		}
+		
+		while (curTP != null) {
+			tongSLThucPham++;
+			tongGiaTriThucPham += curTP.gia;
+			curTP = curTP.next;
+		}
+		
+		tongSLHang = tongSLDienMay + tongSLSanhSu + tongSLThucPham;
+		tongGiaTri = tongGiaTriDienMay + tongGiaTriSanhSu + tongGiaTriThucPham;
+		
+		System.out.println("Tổng số lượng hàng hóa trong kho: " + tongSLHang + " sản phẩm");
+		System.out.println("Tổng giá trị nhập kho: " + tongGiaTri + "VND\n");
+		
+		System.out.println("Điện máy có: " + tongSLDienMay + " sản phẩm");
+		System.out.println("Sành sứ có: " + tongSLSanhSu + " sản phẩm");
+		System.out.println("Thực phẩm có: " + tongSLThucPham + " sản phẩm");
+		
+	}
 	
 	private void XoaHangTheoTen() {
 		

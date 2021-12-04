@@ -37,4 +37,9 @@ public class ThucPham {
 	public void inTT() {
 		System.out.println("Tên hàng: " +name+ ", Loại hàng: Thực Phẩm, Id: " +id+ ", Giá: " +gia+ ", Ngày nhập: "+ngayNhapKho);
 	}
+	
+	public String GetName() {
+		System.out.println(name);
+		return name;
+	}
 }

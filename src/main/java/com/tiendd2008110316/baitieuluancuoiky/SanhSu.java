@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class SanhSu {
-	
 	int id;
 	String name;
 	float gia;
@@ -38,4 +37,10 @@ public class SanhSu {
 	public void inTT() {
 		System.out.println("Tên hàng: " +name+ ", Loại hàng: Sành sứ, Id: " +id+ ", Giá: " +gia+ ", Ngày nhập: "+ngayNhapKho);
 	}
+	
+	public String GetName() {
+		System.out.println(name);
+		return name;
+	}
+
 }
