@@ -1,4 +1,4 @@
-package com.tiendd2008110316.baitieuluancuoiky;
+package main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,10 +58,11 @@ public class Main {
             System.out.println("1)  Thêm hàng			|");
             System.out.println("2)  In danh sách hàng hóa	|");
             System.out.println("3)  Xóa hàng    		|");
-            System.out.println("4)  Thêm táo tại táo bất kỳ    	|");
+            System.out.println("4)  Sửa thông tin hàng hóa    	|");
             System.out.println("5)  Tìm hàng    		|");
-            System.out.println("6)  Thống kê kho hàng    		|");
-            System.out.println("7)  Thoát            		|");
+            System.out.println("6)  Thống kê kho hàng    	|");
+            System.out.println("7)  Sắp xếp kho hàng    	|");
+            System.out.println("8)  Thoát            		|");
             System.out.println("-------------------------");
             System.out.print("Chọn chức năng: ");
             int key = bienNhap.nextInt();
@@ -70,10 +71,11 @@ public class Main {
         	case 1:	ThemHang(kho);break;
         	case 2:	InTT(kho);break;
         	case 3:	XoaHang(kho);break;
-
+        	case 4: SuaHang(kho); break;
         	case 5:	TimHang(kho);break;
         	case 6:	ThongKeKho(kho);break;
-        	default: break;
+        	case 7:	SapXepKhoHang(kho);break;
+        	default: System.out.println("Bạn đã nhập sai"); break;
         	}
 		}
 	}
@@ -96,5 +98,13 @@ public class Main {
 	
 	public static void ThongKeKho(KhoHang kho) {
 		kho.ThongKe(bienNhap);
+	}
+	
+	public static void SuaHang(KhoHang kho) {
+		kho.SuaHang(bienNhap);
+	}
+	
+	public static void SapXepKhoHang(KhoHang kho) {
+		kho.SapXep(bienNhap);
 	}
 }
