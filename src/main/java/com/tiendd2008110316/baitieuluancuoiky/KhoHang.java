@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+
 public class KhoHang {
 	DienMay headDienMay;
 	SanhSu headSanhSu;
@@ -324,16 +325,19 @@ public class KhoHang {
 			
 			if (headDienMay.id == idCanXoa) {
 				headDienMay = headDienMay.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
 			if (headSanhSu.id == idCanXoa) {
 				headSanhSu = headSanhSu.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
 			if (headThucPham.id == idCanXoa) {
 				headThucPham = headThucPham.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
@@ -344,6 +348,7 @@ public class KhoHang {
 			while (curDM.next != null) {
 				if (curDM.next.id == idCanXoa) {
 					curDM.next = curDM.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curDM = curDM.next;
@@ -352,19 +357,21 @@ public class KhoHang {
 			while (curSS.next != null) {
 				if (curSS.next.id == idCanXoa) {
 					curSS.next = curSS.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curSS = curSS.next;
 			}
 			
-			while (curTP != null) {
+			while (curTP.next != null) {
 				if (curTP.next.id == idCanXoa) {
 					curTP.next = curTP.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curTP = curTP.next;
 			}
-			System.out.println("Đã xóa");
+			System.out.println("Không tìm thấy");
 		}
 		
 		if (cachxoa == 2) {
@@ -374,18 +381,19 @@ public class KhoHang {
 			
 			if (headDienMay.name.equalsIgnoreCase(idCanXoa)) {
 				headDienMay = headDienMay.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
-			
-			
 			if (headSanhSu.name.equalsIgnoreCase(idCanXoa)) {
 				headSanhSu = headSanhSu.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
 			if (headThucPham.name.equalsIgnoreCase(idCanXoa)) {
 				headThucPham = headThucPham.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
@@ -396,6 +404,7 @@ public class KhoHang {
 			while (curDM.next != null) {
 				if (curDM.next.name.equalsIgnoreCase(idCanXoa)) {
 					curDM.next = curDM.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curDM = curDM.next;
@@ -404,19 +413,21 @@ public class KhoHang {
 			while (curSS.next != null) {
 				if (curSS.next.name.equalsIgnoreCase(idCanXoa)) {
 					curSS.next = curSS.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curSS = curSS.next;
 			}
 			
-			while (curTP != null) {
+			while (curTP.next != null) {
 				if (curTP.next.name.equalsIgnoreCase(idCanXoa)) {
 					curTP.next = curTP.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curTP = curTP.next;
 			}
-			System.out.println("Đã xóa");
+			System.out.println("Không tìm thấy");
 		}
 
 		if (cachxoa == 3) {
@@ -424,16 +435,19 @@ public class KhoHang {
 			
 			if (headDienMay.gia == giacanxoa) {
 				headDienMay = headDienMay.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
 			if (headSanhSu.gia == giacanxoa) {
 				headSanhSu = headSanhSu.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
 			if (headThucPham.gia == giacanxoa) {
 				headThucPham = headThucPham.next;
+				System.out.println("Đã xóa");
 				return;
 			}
 			
@@ -444,6 +458,7 @@ public class KhoHang {
 			while (curDM.next != null) {
 				if (curDM.next.gia == giacanxoa) {
 					curDM.next = curDM.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curDM = curDM.next;
@@ -452,19 +467,21 @@ public class KhoHang {
 			while (curSS.next != null) {
 				if (curSS.next.gia == giacanxoa) {
 					curSS.next = curSS.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curSS = curSS.next;
 			}
 			
-			while (curTP != null) {
+			while (curTP.next != null) {
 				if (curTP.next.gia == giacanxoa) {
 					curTP.next = curTP.next.next;
+					System.out.println("Đã xóa");
 					return;
 				}
 				curTP = curTP.next;
 			}
-			System.out.println("Đã xóa");
+			System.out.println("Không tìm thấy");
 		}
 		
 	}
@@ -547,7 +564,7 @@ public class KhoHang {
 				return;
 			}
 			
-			System.out.println("Đến ngày: ");
+			System.out.print("Đến ngày: "); date = scanner.nextLine();
 			Date endDate;
 			try {
 				endDate = dateFormat.parse(date);
@@ -558,7 +575,7 @@ public class KhoHang {
 			
 			DienMay curDM = headDienMay;
 			while (curDM != null) {
-				if (curDM.ngayNhapKho.compareTo(startDate) >= 0 && curDM.ngayNhapKho.compareTo(startDate) <= 0) {
+				if (curDM.ngayNhapKho.compareTo(startDate) >= 0 && curDM.ngayNhapKho.compareTo(endDate) <= 0) {
 					count++;
 					curDM.inTT();
 				}
@@ -574,7 +591,7 @@ public class KhoHang {
 			
 			SanhSu curSS = headSanhSu;
 			while (curSS != null) {
-				if (curSS.ngayNhapKho.compareTo(startDate) >= 0 && curSS.ngayNhapKho.compareTo(startDate) <= 0) {
+				if (curSS.ngayNhapKho.compareTo(startDate) >= 0 && curSS.ngayNhapKho.compareTo(endDate) <= 0) {
 					count++;
 					curSS.inTT();
 				}
@@ -589,7 +606,7 @@ public class KhoHang {
 			
 			ThucPham curTP = headThucPham;
 			while (curTP != null) {
-				if (curTP.ngayNhapKho.compareTo(startDate) >= 0 && curTP.ngayNhapKho.compareTo(startDate) <= 0) {
+				if (curTP.ngayNhapKho.compareTo(startDate) >= 0 && curTP.ngayNhapKho.compareTo(endDate) <= 0) {
 					count++;
 					curTP.inTT();
 				}
@@ -645,18 +662,52 @@ public class KhoHang {
 	}
 	
 	public void SapXep(Scanner scanner) {
-		System.out.println("Bạn muốn sắp xếp theo? 1) Giá nhập	2) Ngày nhập ----> Lựa chọn: "); int luachon = scanner.nextInt();
+		System.out.print("Bạn muốn sắp xếp theo?\n1) Giá nhập	2) Ngày nhập ----> Lựa chọn: "); int luachon = scanner.nextInt();
 		
 		if (luachon == 1) {
 			
 		}else if (luachon == 2) {
-			DienMay curDM = headDienMay;
-			SanhSu curSS = headSanhSu;
-			ThucPham curTP = headThucPham;
+			DienMay startDM = headDienMay;
+			SanhSu startSS = headSanhSu;
+			ThucPham startTP = headThucPham;
 			
-			while (curDM != null) {
-				
+			DienMay bienchayDM = startDM;
+			
+			while (startDM != null) {
+				while (bienchayDM.next != null) {
+					if ((int)bienchayDM.next.ngayNhapKho.getYear() < (int)startDM.ngayNhapKho.getYear()) {
+						DienMay newNode = new DienMay(bienchayDM.next.id, bienchayDM.next.name, bienchayDM.next.gia, bienchayDM.next.ngayNhapKho);
+						
+						if (startDM == headDienMay) {
+							
+						}
+						
+						
+						
+						if (bienchayDM == startDM) {
+							bienchayDM.next = bienchayDM.next.next;
+							newNode.next = startDM;
+						}else {
+							
+							DienMay newNodeSwap = new DienMay(bienchayDM.next.next.id, bienchayDM.next.next.name, bienchayDM.next.next.gia, bienchayDM.next.next.ngayNhapKho);
+							newNodeSwap.next = bienchayDM.next.next.next;
+							newNode.next = startDM.next;
+							bienchayDM.next = startDM;
+							startDM.next = newNodeSwap;
+						}
+					}else if(bienchayDM.ngayNhapKho.getMonth() < startDM.ngayNhapKho.getMonth()){
+						
+					}else if (bienchayDM.ngayNhapKho.getDay() < startDM.ngayNhapKho.getDay()){
+						
+					}
+					
+					bienchayDM = bienchayDM.next;
+				}
+				startDM = startDM.next;
+				bienchayDM = startDM;
 			}
+			
+			
 			
 		}else {
 			System.out.println("Bạn đã nhập sai\n");
@@ -664,6 +715,4 @@ public class KhoHang {
 		}
 		
 	}
-	
-	
 }
