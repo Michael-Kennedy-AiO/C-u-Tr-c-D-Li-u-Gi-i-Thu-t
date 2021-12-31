@@ -35,7 +35,7 @@ public class SanhSu {
 	}
 	
 	public void inTT() {
-		System.out.println("Tên hàng: " +name+ ", Loại hàng: Sành sứ, Id: " +id+ ", Giá: " +gia+ ", Ngày nhập: "+ngayNhapKho);
+		System.out.println("Tên hàng: " +name+ ", Loại hàng: Điện máy, Id: " +id+ ", Giá: " +(gia*1000)+ "VND, Ngày nhập: "+ngayNhapKho);
 	}
 	
 	public String GetName() {

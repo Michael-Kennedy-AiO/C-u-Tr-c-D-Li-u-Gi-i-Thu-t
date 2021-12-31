@@ -64,6 +64,8 @@ public class KhoHang {
 				}
 				cur = cur.next;
 			}
+		}else {
+			System.out.println("Bạn đã nhập sai hãy thực hiện lại\n");
 		}
 	}
 	
@@ -244,7 +246,8 @@ public class KhoHang {
 				}
 				curTP = curTP.next;
 			}
-		}
+		}else
+			System.out.println("Bạn đã nhập sai hãy thực hiện lại\n");
 	}
 	
 	int NhapId(Scanner scanner, int loaihang) {
@@ -372,9 +375,7 @@ public class KhoHang {
 				curTP = curTP.next;
 			}
 			System.out.println("Không tìm thấy");
-		}
-		
-		if (cachxoa == 2) {
+		}else if (cachxoa == 2) {
 			System.out.print("Hãy nhập tên hàng cần xóa: ");
 			scanner.nextLine();
 			String idCanXoa = scanner.nextLine();
@@ -428,9 +429,7 @@ public class KhoHang {
 				curTP = curTP.next;
 			}
 			System.out.println("Không tìm thấy");
-		}
-
-		if (cachxoa == 3) {
+		}else if (cachxoa == 3) {
 			System.out.println("Hãy nhập giá hàng cần xóa"); float giacanxoa = scanner.nextFloat();
 			
 			if (headDienMay.gia == giacanxoa) {
@@ -482,8 +481,8 @@ public class KhoHang {
 				curTP = curTP.next;
 			}
 			System.out.println("Không tìm thấy");
-		}
-		
+		}else
+			System.out.println("Bạn đã nhập sai hãy thực hiện lại\n");
 	}
 	
 	public void TimHang(Scanner scanner) {
@@ -613,7 +612,8 @@ public class KhoHang {
 				
 				curTP = curTP.next;
 			}
-		}
+		}else
+			System.out.println("Bạn đã nhập sai hãy thực hiện lại\n");
 	}
 	
 	public void ThongKe(Scanner scanner) {
